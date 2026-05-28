@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smokey File Hub — Premium Download Collection</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Smokey File Hub — a curated collection of premium downloadable resources with search, categories and auto-generated thumbnails.">
+  <meta name="keywords" content="downloads, file hub, premium resources, templates, tutorials, UI kits, code samples">
+  <meta name="author" content="Smokey File Hub">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Smokey File Hub — Premium Download Collection">
+  <meta property="og:description" content="A curated collection of premium downloadable resources with search, categories and auto-generated thumbnails.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Smokey File Hub — Premium Download Collection">
+  <meta name="twitter:description" content="A curated collection of premium downloadable resources with search, categories and auto-generated thumbnails.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Smokey File Hub",
+    "url": "/",
+    "description": "A curated collection of premium downloadable resources with search, categories and auto-generated thumbnails."
+  }
+  </script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      font-family: 'Inter', sans-serif;
+    }
+
+    body{
+      background:
+      radial-gradient(circle at top left, rgba(168,85,247,.18), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(59,130,246,.18), transparent 30%),
+      #050505;
+      overflow-x: hidden;
+    }
+
+    .glass{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .card{
+      transition: .35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover{
+      transform: translateY(-8px);
+      border-color: rgba(168,85,247,.35);
+      box-shadow:
+      0 0 30px rgba(168,85,247,.10),
+      0 0 60px rgba(59,130,246,.08);
+    }
+
+    .thumb{
+      position: relative;
+      height: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .thumb::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+      radial-gradient(circle at top left, rgba(255,255,255,.18), transparent 35%),
+      linear-gradient(135deg,#7c3aed,#2563eb);
+    }
+
+    .thumb::after{
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      top: -120px;
+      right: -100px;
+    }
+
+    .thumb span{
+      position: relative;
+      z-index: 5;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.5px;
+    }
+
+    .badge{
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .download-btn{
+      transition: .3s ease;
+    }
+
+    .download-btn:hover{
+      transform: scale(1.02);
+    }
+
+    .search-input:focus,
+    .filter-select:focus{
+      border-color: #8b5cf6;
+      box-shadow: 0 0 0 4px rgba(139,92,246,.15);
+    }
+
+    .top-blur{
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 999px;
+      filter: blur(120px);
+      z-index: -1;
+    }
+
+    .floating{
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform: translateY(0px);
+      }
+      50%{
+        transform: translateY(-10px);
+      }
+      100%{
+        transform: translateY(0px);
+      }
+    }
+
+    .scrollbar-hide::-webkit-scrollbar{
+      display:none;
+    }
+
+  </style>
+</head>
+
+<body class="text-white min-h-screen">
+
+  <!-- Background -->
+  <div class="top-blur bg-purple-600/20 top-0 left-0"></div>
+  <div class="top-blur bg-blue-600/20 bottom-0 right-0"></div>
+
+  <!-- Main -->
+  <div class="max-w-7xl mx-auto px-5 py-10">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 floating">
+        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+        Premium Download Collection
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black leading-tight">
+        Smokey
+        <span class="bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
+          File Hub
+        </span>
+      </h1>
+
+      <p class="text-zinc-400 max-w-2xl mx-auto mt-5 text-lg">
+        Beautiful modern download collection with auto-generated thumbnails,
+        search system and category filters.
+      </p>
+
+    </div>
+
+    <!-- Search Bar -->
+    <div class="glass rounded-3xl p-4 md:p-5 mb-10">
+
+      <div class="flex flex-col lg:flex-row gap-4">
+
+        <!-- Search -->
+        <div class="relative flex-1">
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-4.35-4.35M16 10.5A5.5 5.5 0 115 10.5a5.5 5.5 0 0111 0z"/>
+          </svg>
+
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search files..."
+            class="search-input w-full bg-black/30 border border-white/10 rounded-2xl pl-14 pr-5 py-4 outline-none transition"
+          />
+
+        </div>
+
+        <!-- Filter -->
+        <select
+          id="categoryFilter"
+          class="filter-select lg:w-72 bg-black/30 border border-white/10 rounded-2xl px-5 py-4 outline-none transition"
+        >
+          <option value="all">All Categories</option>
+          <option value="code">Code</option>
+          <option value="code">code</option>
+          <option value="code">code</option>
+          <option value="code">code</option>
+        </select>
+
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+
+      <div>
+        <h2 class="text-3xl font-bold">
+          All Files
+        </h2>
+
+        <p class="text-zinc-400 mt-1">
+          Responsive modern file collection
+        </p>
+      </div>
+
+      <div class="glass rounded-2xl px-5 py-3">
+        <span class="text-zinc-400 text-sm">
+          Total Files :
+        </span>
+
+        <span id="fileCount" class="font-bold text-lg ml-2">
+          22
+        </span>
+      </div>
+
+    </div>
+
+    <!-- File Grid -->
+    <div
+      id="fileGrid"
+      class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    ></div>
+
+    <!-- Empty State -->
+    <div
+      id="emptyState"
+      class="hidden text-center py-20"
+    >
+
+      <div class="glass rounded-3xl max-w-md mx-auto p-10">
+
+        <div class="text-6xl mb-5">
+          🔍
+        </div>
+
+        <h3 class="text-2xl font-bold">
+          No Files Found
+        </h3>
+
+        <p class="text-zinc-400 mt-3">
+          Try searching with another keyword or category.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script>
+
+    // =========================
+    // FILE DATA
+    // =========================
+
+    const files = [
+
+      {
+        title: "Csharp Mastercourse",
+        category: "code",
+        type: "MP4",
+        download: "downloads/csharp mastercourse.torrent"
+      },
+
+      {
+        title: "Dsa Java",
+        category: "code",
+        type: "MP4",
+        download: "downloads/dsa java.torrent"
+      },
+
+      {
+        title: "Bootstrap 5",
+        category: "code",
+        type: "MP4",
+        download: "downloads/bootstrap 5.torrent"
+      },
+
+      {
+        title: "Csharp Foundation",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Csharp Foundation.torrent"
+      },
+
+      {
+        title: "Devops Bootcamp",
+        category: "code",
+        type: "MP4",
+        download: "downloads/DevOps Bootcamp.torrent"
+      },
+
+      {
+        title: "Devsecops Bootcamp",
+        category: "code",
+        type: "MP4",
+        download: "downloads/DevSecOps Bootcamp.torrent"
+      },
+
+      {
+        title: "Getting Started With .Net Core",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Getting Started with .NET Core.torrent"
+      },
+
+      {
+        title: "Learn Blazor Server (Blazor Server In Depth)",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Learn Blazor Server (Blazor Server In Depth).torrent"
+      },
+
+      {
+        title: "Magoosh Ielts",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Magoosh IELTS.torrent"
+      },
+
+      {
+        title: "Retail Manager Phase 1",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Retail Manager Phase 1.torrent"
+      },
+
+      {
+        title: "Sql Databases_ From Start To Finish",
+        category: "code",
+        type: "MP4",
+        download: "downloads/SQL Databases_ From Start to Finish.torrent"
+      },
+
+      {
+        title: "Sql",
+        category: "code",
+        type: "MP4",
+        download: "downloads/SQL.torrent"
+      },
+
+      {
+        title: "Techworld With Nana - Gitlab Ci Cd - From Zero To Hero",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Techworld with Nana - GitLab CI CD - From Zero To Hero.torrent"
+      },
+
+      {
+        title: "Techworld With Nana - The Ultimate Course For It Beginners",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Techworld With Nana - The Ultimate Course for IT Beginners.torrent"
+      },
+
+      {
+        title: "The Ultimate Kubernetes Administrator Course  Cka",
+        category: "code",
+        type: "MP4",
+        download: "downloads/The Ultimate Kubernetes Administrator Course  CKA.torrent"
+      },
+
+      {
+        title: "Tim Corey - Git From Start To Finish",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Tim Corey - Git From Start to Finish.torrent"
+      },
+
+      {
+        title: "Tournament Tracker Csharp",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Tournament Tracker Csharp.torrent"
+      },
+
+      {
+        title: "Udemy - Advanced Sql Bootcamp (8.2022)",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Udemy - Advanced SQL Bootcamp (8.2022).torrent"
+      },
+
+      {
+        title: "Udemy - Python Mega Course Build 20 Real-World Apps And Ai Agents (2025-11)",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Udemy - Python Mega Course Build 20 Real-World Apps and AI Agents (2025-11).torrent"
+      },
+
+      {
+        title: "Upgrading To .Net Core From Start To Finish",
+        category: "code",
+        type: "MP4",
+        download: "downloads/Upgrading to .NET Core from Start to Finish.torrent"
+      },
+
+    ];
+
+    // =========================
+    // ELEMENTS
+    // =========================
+
+    const fileGrid = document.getElementById('fileGrid');
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const fileCount = document.getElementById('fileCount');
+    const emptyState = document.getElementById('emptyState');
+
+    // =========================
+    // RANDOM COLORS
+    // =========================
+
+    const gradients = [
+
+      "from-purple-600 to-blue-600",
+      "from-pink-600 to-purple-600",
+      "from-cyan-600 to-blue-600",
+      "from-orange-500 to-red-600",
+      "from-emerald-500 to-cyan-600",
+      "from-violet-600 to-indigo-600"
+
+    ];
+
+    // =========================
+    // RENDER FILES
+    // =========================
+
+    function renderFiles(data){
+
+      fileGrid.innerHTML = "";
+
+      fileCount.innerText = data.length;
+
+      if(data.length === 0){
+
+        emptyState.classList.remove('hidden');
+        return;
+
+      } else {
+
+        emptyState.classList.add('hidden');
+
+      }
+
+      data.forEach((file, index) => {
+
+        const gradient =
+          gradients[index % gradients.length];
+
+        const card = document.createElement('div');
+
+        card.className =
+          "card glass rounded-3xl";
+
+        card.innerHTML = `
+
+          <!-- Thumbnail -->
+          <div class="thumb bg-gradient-to-br ${gradient}">
+            <span>${file.title}</span>
+          </div>
+
+          <!-- Content -->
+          <div class="p-5">
+
+            <div class="flex items-center justify-between mb-4">
+
+              <span class="badge text-xs px-3 py-1 rounded-full uppercase">
+                ${file.category}
+              </span>
+
+              <span class="text-zinc-400 text-sm">
+                ${file.type}
+              </span>
+
+            </div>
+
+            <h3 class="text-xl font-bold leading-tight">
+              ${file.title}
+            </h3>
+
+            <p class="text-zinc-400 text-sm mt-3 leading-relaxed">
+              Premium downloadable resource collection.
+            </p>
+
+            <a
+              href="${file.download}"
+              class="download-btn block text-center mt-5 bg-white text-black py-3 rounded-2xl font-semibold"
+            >
+              Download File
+            </a>
+
+          </div>
+
+        `;
+
+        fileGrid.appendChild(card);
+
+      });
+
+    }
+
+    renderFiles(files);
+
+    // =========================
+    // FILTER SYSTEM
+    // =========================
+
+    function filterFiles(){
+
+      const search =
+        searchInput.value.toLowerCase();
+
+      const category =
+        categoryFilter.value;
+
+      const filteredFiles = files.filter(file => {
+
+        const matchSearch =
+          file.title.toLowerCase().includes(search);
+
+        const matchCategory =
+          category === "all" ||
+          file.category === category;
+
+        return matchSearch && matchCategory;
+
+      });
+
+      renderFiles(filteredFiles);
+
+    }
+
+    searchInput.addEventListener('input', filterFiles);
+    categoryFilter.addEventListener('change', filterFiles);
+
+  </script>
+
+</body>
+</html>
